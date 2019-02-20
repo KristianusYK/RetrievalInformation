@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model;
 
 import java.util.ArrayList;
@@ -11,7 +7,7 @@ import java.util.ArrayList;
  *
  * @author admin
  */
-public class Term {
+public class Term implements Comparable<Term>{
     private String term;
     private ArrayList<Posting> postingList = new ArrayList<Posting>();
 
@@ -19,7 +15,7 @@ public class Term {
         this.term = term;
     }
 
-    public int getNumberOfTerm(){
+    public int getNumberOfDocument(){
         return postingList.size();
     }
     /**
@@ -48,6 +44,11 @@ public class Term {
      */
     public void setPostingList(ArrayList<Posting> postingList) {
         this.postingList = postingList;
+    }
+
+    @Override
+    public int compareTo(Term o) {
+        return term.compareToIgnoreCase(o.getTerm());
     }
 
     
